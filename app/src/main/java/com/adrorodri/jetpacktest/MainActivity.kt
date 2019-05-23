@@ -5,7 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), RedFragment.OnFragmentInteractionListener,
-    blueFragment.OnFragmentInteractionListener {
+    BlueFragment.OnFragmentInteractionListener,
+    GreenFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri) {
         // TODO("not implemented")
     }

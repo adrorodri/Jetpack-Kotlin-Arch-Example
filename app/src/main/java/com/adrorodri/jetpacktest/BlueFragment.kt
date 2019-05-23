@@ -17,13 +17,13 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [blueFragment.OnFragmentInteractionListener] interface
+ * [BlueFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [blueFragment.newInstance] factory method to
+ * Use the [BlueFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class blueFragment : Fragment() {
+class BlueFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -92,7 +92,7 @@ class blueFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            blueFragment().apply {
+            BlueFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

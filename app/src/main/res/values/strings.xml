@@ -3,4 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="go_blue">GO Blue</string>
+    <string name="go_green">GO Green</string>
 </resources>
