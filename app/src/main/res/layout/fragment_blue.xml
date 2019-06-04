@@ -3,6 +3,6 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".BlueFragment"
+             tools:context=".ui.fragments.BlueFragment"
              android:background="@color/blue">
 </FrameLayout>
