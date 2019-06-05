@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.adrorodri.jetpacktest.R
-import com.adrorodri.jetpacktest.domain.model.Ability
+import com.adrorodri.jetpacktest.domain.entities.Ability
 
 class AbilitiesRecyclerViewAdapter(private val context: Context, private var abilitiesList: MutableList<Ability>) :
     RecyclerView.Adapter<AbilitiesRecyclerViewAdapter.ViewHolder>() {

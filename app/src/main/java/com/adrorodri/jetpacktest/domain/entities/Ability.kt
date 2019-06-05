@@ -1,4 +1,4 @@
-package com.adrorodri.jetpacktest.domain.model
+package com.adrorodri.jetpacktest.domain.entities
 
 import com.google.gson.annotations.Expose
 

@@ -3,4 +3,5 @@
     <dimen name="radius_sm">10dp</dimen>
     <dimen name="radius_lg">20dp</dimen>
     <dimen name="stroke_sm">5dp</dimen>
+    <dimen name="text_size_lg">20sp</dimen>
 </resources>

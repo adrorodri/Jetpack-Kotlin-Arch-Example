@@ -8,28 +8,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.adrorodri.jetpacktest.R
-import com.adrorodri.jetpacktest.domain.model.Ability
-import com.adrorodri.jetpacktest.presenter.AbilitiesPresenter
-import com.adrorodri.jetpacktest.presenter.AbilitiesPresenterInterface
+import com.adrorodri.jetpacktest.domain.entities.Ability
+import com.adrorodri.jetpacktest.ui.presenter.AbilitiesPresenter
+import com.adrorodri.jetpacktest.ui.presenter.AbilitiesPresenterInterface
 import com.adrorodri.jetpacktest.ui.adapters.AbilitiesRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_red.*
 
 class AbilitiesFragment : Fragment(), AbilitiesPresenterInterface {
-    private var presenter: AbilitiesPresenter = AbilitiesPresenter(this)
+    private lateinit var presenter: AbilitiesPresenter
     private lateinit var adapter: AbilitiesRecyclerViewAdapter
-
-    override fun onError(reason: String) {
-        toast(reason)
-    }
-
-    override fun onAbilitiesLoaded(results: List<Ability>?) {
-        adapter.setItems(results)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        presenter = AbilitiesPresenter(context!!, this)
         return inflater.inflate(R.layout.fragment_red, container, false)
     }
 
@@ -41,12 +34,20 @@ class AbilitiesFragment : Fragment(), AbilitiesPresenterInterface {
         presenter.loadAbilities()
     }
 
-    private fun toast(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-    }
-
     companion object {
         @JvmStatic
         fun newInstance() = AbilitiesFragment()
+    }
+
+    override fun onAbilitiesLoaded(results: List<Ability>?) {
+        adapter.setItems(results)
+    }
+
+    override fun onError(reason: String?) {
+        toast(reason ?: "unknown error")
+    }
+
+    private fun toast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }
