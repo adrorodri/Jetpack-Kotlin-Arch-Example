@@ -1,13 +1,13 @@
-package com.adrorodri.jetpacktest.ui.presenter
+package com.adrorodri.jetpacktest.ui.presenter.ability
 
 import android.content.Context
-import com.adrorodri.jetpacktest.domain.useCases.GetAbilities
+import com.adrorodri.jetpacktest.domain.useCases.GetAbilityById
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class AbilitiesPresenter(private val context: Context, private val presenterInterface: AbilitiesPresenterInterface?) {
+class AbilityPresenter(private val context: Context, private val presenterInterface: AbilityPresenterInterface?) {
 
     fun onError(error: Any) {
         when (error) {
@@ -16,11 +16,11 @@ class AbilitiesPresenter(private val context: Context, private val presenterInte
         }
     }
 
-    fun loadAbilities() {
+    fun loadAbility(id: String?) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                val abilities = GetAbilities(context).invoke()
-                presenterInterface?.onAbilitiesLoaded(abilities)
+                val ability = GetAbilityById(context, id).invoke()
+                presenterInterface?.onAbilityLoaded(ability)
             } catch (e: Exception) {
                 onError(e)
             }

@@ -5,6 +5,7 @@ import com.adrorodri.jetpacktest.domain.entities.PokemonApiResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface AbilitiesApi {
@@ -13,4 +14,7 @@ interface AbilitiesApi {
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
     ): Deferred<Response<PokemonApiResponse<Ability>>>
+
+    @GET("/api/v2/ability/{url}")
+    fun getAbilityByIdAsync(@Path("url") id: String): Deferred<Response<Ability>>
 }

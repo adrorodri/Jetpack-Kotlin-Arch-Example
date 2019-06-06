@@ -4,10 +4,10 @@ import android.content.Context
 import com.adrorodri.jetpacktest.data.RepositoryProvider
 import com.adrorodri.jetpacktest.domain.entities.Ability
 
-class GetAbilities(context: Context) {
+class GetAbilityById(context: Context, private val id: String?) {
     private val repository = RepositoryProvider(context).abilitiesRepository
 
-    suspend fun invoke(): List<Ability>? {
-        return repository.getAllAbilities()?.map { it.apply { url = url.split("/").takeLast(2).first() } }
+    suspend fun invoke(): Ability? {
+        return repository.getAbilityById(id)
     }
 }

@@ -15,6 +15,7 @@ class AbilitiesDisk(private val context: Context) {
     companion object {
         private const val SHARED_PREFS = "pokemon"
         private const val SHARED_PREFS_KEY_ABILITIES = "abilities"
+        private const val SHARED_PREFS_KEY_ABILITY = "ability_"
     }
 
     fun getCachedAbilities(): List<Ability>? {
@@ -23,5 +24,13 @@ class AbilitiesDisk(private val context: Context) {
 
     fun setCachedAbilities(abilities: List<Ability>?) {
         return prefs.edit().putString(SHARED_PREFS_KEY_ABILITIES, gson.toJson(abilities)).apply()
+    }
+
+    fun getCachedAbility(id: String): Ability? {
+        return gson.fromJson<Ability>(prefs.getString(SHARED_PREFS_KEY_ABILITY + id, "{}")!!)
+    }
+
+    fun setCachedAbility(id: String, ability: Ability?) {
+        return prefs.edit().putString(SHARED_PREFS_KEY_ABILITY + id, gson.toJson(ability)).apply()
     }
 }

@@ -2,17 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
-            app:startDestination="@id/redFragment">
+            app:startDestination="@id/abilitiesFragment">
 
-    <fragment android:id="@+id/redFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.AbilitiesFragment"
-              android:label="fragment_red" tools:layout="@layout/fragment_red">
-        <action android:id="@+id/action_redFragment_to_blueFragment" app:destination="@id/blueFragment"
+    <fragment android:id="@+id/abilitiesFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.AbilitiesFragment"
+              android:label="fragment_abilities" tools:layout="@layout/fragment_abilities">
+        <action android:id="@+id/action_abilitiesFragment_to_abilityFragment" app:destination="@id/abilityFragment"
                 app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"/>
         <action android:id="@+id/action_redFragment_to_greenFragment" app:destination="@id/greenFragment"
                 app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
-    <fragment android:id="@+id/blueFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.BlueFragment"
-              android:label="fragment_blue" tools:layout="@layout/fragment_blue"/>
+    <fragment android:id="@+id/abilityFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.AbilityFragment"
+              android:label="fragment_ability" tools:layout="@layout/fragment_ability">
+        <argument
+                android:name="id"
+                app:argType="string"/>
+    </fragment>
     <fragment android:id="@+id/greenFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.GreenFragment"
               android:label="fragment_green" tools:layout="@layout/fragment_green"/>
 </navigation>

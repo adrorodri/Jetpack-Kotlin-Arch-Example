@@ -4,4 +4,5 @@ import com.adrorodri.jetpacktest.domain.entities.Ability
 
 interface AbilitiesRepository {
     suspend fun getAllAbilities(): List<Ability>?
+    suspend fun getAbilityById(id: String?): Ability?
 }

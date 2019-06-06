@@ -1,8 +1,8 @@
-package com.adrorodri.jetpacktest.ui.presenter
+package com.adrorodri.jetpacktest.ui.presenter.abilities
 
 import com.adrorodri.jetpacktest.domain.entities.Ability
 
 interface AbilitiesPresenterInterface {
-    fun onAbilitiesLoaded(results: List<Ability>?)
+    fun onAbilitiesLoaded(abilities: List<Ability>?)
     fun onError(reason: String?)
 }
