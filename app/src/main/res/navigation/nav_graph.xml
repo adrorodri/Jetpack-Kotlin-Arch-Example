@@ -16,7 +16,15 @@
         <argument
                 android:name="id"
                 app:argType="string"/>
+        <action
+                android:id="@+id/action_abilityFragment_to_pokemonsFragment"
+                app:destination="@id/pokemonsFragment"/>
     </fragment>
     <fragment android:id="@+id/greenFragment" android:name="com.adrorodri.jetpacktest.ui.fragments.GreenFragment"
               android:label="fragment_green" tools:layout="@layout/fragment_green"/>
+    <fragment
+            android:id="@+id/pokemonsFragment"
+            android:name="com.adrorodri.jetpacktest.ui.fragments.PokemonsFragment"
+            android:label="fragment_pokemons"
+            tools:layout="@layout/fragment_pokemons"/>
 </navigation>

@@ -8,6 +8,6 @@ class GetAbilityById(context: Context, private val id: String?) {
     private val repository = RepositoryProvider(context).abilitiesRepository
 
     suspend fun invoke(): Ability? {
-        return repository.getAbilityById(id)
+        return repository.getAbilityById(id)?.apply { pokemon = pokemon.map { it.apply { pokemon.url = pokemon.url.split("/").takeLast(2).first() } } }
     }
 }
